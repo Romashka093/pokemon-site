@@ -6,3 +6,15 @@
   text-align: center;
   color: var(--white);
 }
+@mixin container_form_width {
+  width: 280px;
+  @media (min-width: 375px) {
+    width: 340px;
+  }
+  @media (min-width: 425px) {
+    width: 360px;
+  }
+  @media (min-width: 768px) {
+    width: 480px;
+  }
+}

@@ -1,0 +1,31 @@
+@import '../../../assets//styles/variables.scss';
+.window_overlay {
+  overflow-y: auto;
+  position: fixed;
+  height: 100%;
+  // height: auto;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #0000003b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.modal_window {
+  @include container_form_width;
+  margin: 72px auto 0;
+  &_content {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 20px #000000bd;
+    border: 1px solid red;
+    border-radius: 12px;
+    transition: 223ms;
+    &:hover {
+      transition: 223ms;
+      border: 1px solid yellow;
+    }
+  }
+}
