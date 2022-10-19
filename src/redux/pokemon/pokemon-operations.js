@@ -16,7 +16,7 @@ export const fetchPokemonList = createAsyncThunk(
     try {
       return api.fulfillWithValue(response.data);
     } catch (error) {
-      return api.rejectWithValue(error);
+      return api.rejectWithValue(error.message);
     }
   },
 );
@@ -27,24 +27,31 @@ export const fetchPokemonItem = createAsyncThunk(
     try {
       return api.fulfillWithValue(response.data);
     } catch (error) {
-      return api.rejectWithValue(error);
+      return api.rejectWithValue(error.message);
     }
   },
 );
-// export const fetchFoundPokemonList = createAsyncThunk(
-//   'pokemon/fetchFound',
-//   async (cred, api) => {
-//     console.log('api', api);
+export const fetchFoundPokemonList = createAsyncThunk(
+  'pokemon/fetchFound',
+  async (cred, api) => {
+    const response = await axios.get(`/pokemon/${cred}`);
+    console.log('data: ', response.data);
+    try {
+      return api.fulfillWithValue(response.data);
+    } catch (error) {
+      return api.rejectWithValue(error.message);
+    }
+  },
+);
 
-//     console.log('cred', cred);
-
-//     const response = await axios.get(`/pokemon/${cred.toLowerCase()}`);
-//     console.log('data: ', response.data);
-//     // return response.data;
-//     try {
-//       return api.fulfillWithValue(response.data);
-//     } catch (error) {
-//       return api.rejectWithValue(error);
-//     }
-//   },
-// );
+export const fetchPokemonListByType = createAsyncThunk(
+  'pokemon/fetchByType',
+  async (cred, api) => {
+    const response = await axios.get(`/type/${cred}`);
+    try {
+      return api.fulfillWithValue(response.data);
+    } catch (error) {
+      return api.rejectWithValue(error.message);
+    }
+  },
+);

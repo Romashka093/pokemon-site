@@ -1,9 +1,19 @@
-import { withModalWindow } from '../../ui/ModalWindow';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { pokemonOperations, pokemonSelector } from 'redux/pokemon';
 
-const Modal = ({ item, handlerToggleModal }) => {
+const PokemonItem = () => {
+  let { id } = useParams();
+  const dispatch = useDispatch();
+  const item = useSelector(pokemonSelector.getPokemonItem);
+
+  useEffect(() => {
+    dispatch(pokemonOperations.fetchPokemonItem(id));
+  }, [dispatch, id]);
+
   return (
     <div>
-      <button onClick={handlerToggleModal}>X</button>
       <h2>{item?.name}</h2>
       <div>
         <img src={item?.sprites?.other.dream_world.front_default} alt="" />
@@ -13,7 +23,7 @@ const Modal = ({ item, handlerToggleModal }) => {
             item.moves.map(el => <li key={el.move.url}>{el.move.name}</li>)}
         </ul>
         <ul>
-          <h4>stats</h4>
+          <h4>Stats</h4>
           {item?.stats.length > 0 &&
             item.stats.map(el => (
               <li key={el.stat.name}>
@@ -29,4 +39,4 @@ const Modal = ({ item, handlerToggleModal }) => {
   );
 };
 
-export default withModalWindow(Modal);
+export default PokemonItem;
