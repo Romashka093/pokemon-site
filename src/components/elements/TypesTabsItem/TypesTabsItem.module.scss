@@ -1,0 +1,21 @@
+.tab {
+  margin: 0 8px 12px 0;
+  padding: 8px;
+  color: var(--white);
+  border-radius: 12px;
+  text-transform: capitalize;
+  transition: 223ms linear;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:active {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+@media (min-width: 1024px) {
+  .tab {
+    margin: 0 14px 16px 0;
+    padding: 16px;
+  }
+}

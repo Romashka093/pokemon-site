@@ -1,5 +1,12 @@
-.type {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+@media (min-width: 768px) {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1440px) {
+  .list {
+    justify-content: flex-start;
+  }
 }

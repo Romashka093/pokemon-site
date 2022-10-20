@@ -3,7 +3,6 @@ import { fetchPokemonNames } from './pokemon_names_operations';
 
 const data = createReducer(null, {
   [fetchPokemonNames.fulfilled]: (_, { payload }) => {
-    console.log(payload);
     return {
       results: payload?.results?.map(elem => elem.name),
     };

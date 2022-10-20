@@ -12,11 +12,12 @@ const PokemonItem = () => {
     dispatch(pokemonOperations.fetchPokemonItem(id));
   }, [dispatch, id]);
 
+  const getImgById = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
   return (
     <div>
       <h2>{item?.name}</h2>
       <div>
-        <img src={item?.sprites?.other.dream_world.front_default} alt="" />
+        <img src={getImgById} alt="" />
         <ul>
           <h3>Moves</h3>
           {item?.moves?.length > 0 &&

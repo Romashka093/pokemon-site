@@ -1,20 +1,29 @@
-import { Outlet, Link } from 'react-router-dom';
-import { TypesTabs } from '../TypesTabs';
-import styles from './Layout.module.scss';
+import { Logo } from 'components/elements/Logo';
 import { Searcher } from '../Searcher';
+import { TypesTabs } from '../TypesTabs';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { routes } from 'routes';
+import styles from './Layout.module.scss';
 
 const { main } = routes;
-const { header, mainLayout, footer } = styles;
+const { header, header_heading, mainLayout, footer } = styles;
 
 const Layout = () => {
+  const navigate = useNavigate();
+
+  const handlerGoHome = () => {
+    navigate(main, { replace: true });
+  };
+
   return (
     <>
       <header className={header}>
-        <Link to={main}>
-          <h1>Pokémon</h1>
-        </Link>
-        <Searcher />
+        <div className={header_heading}>
+          <h1 onClick={handlerGoHome}>
+            <Logo />
+          </h1>
+          <Searcher />
+        </div>
         <nav>
           <TypesTabs />
         </nav>

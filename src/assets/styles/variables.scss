@@ -6,8 +6,9 @@
   text-align: center;
   color: var(--white);
 }
-@mixin container_form_width {
+@mixin container_width {
   width: 280px;
+  margin: 0 auto;
   @media (min-width: 375px) {
     width: 340px;
   }
@@ -15,6 +16,7 @@
     width: 360px;
   }
   @media (min-width: 768px) {
-    width: 480px;
+    width: auto;
+    margin: 0 48px;
   }
 }

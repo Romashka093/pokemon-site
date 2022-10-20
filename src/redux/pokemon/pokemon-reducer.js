@@ -22,7 +22,6 @@ const item = createReducer(null, {
 const count = createReducer(null, {
   [fetchPokemonList.fulfilled]: (_, { payload }) => payload.count,
 });
-// TODO переписати з initialState
 
 const loading = createReducer(false, {
   [fetchPokemonList.pending]: () => true,

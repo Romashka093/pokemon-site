@@ -4,12 +4,12 @@ import { pokemonSelector, pokemonOperations } from 'redux/pokemon';
 import { useLocalStorage } from 'utility/hooks';
 import { getIdFromUrl } from 'utility/helpers';
 import { PokemonListItem } from '../elements/PokemonListItem';
-import Pagination from '../elements/Pagination/Pagination';
-// import styles from './PokemonList.module.scss';
+import { Pagination } from '../elements/Pagination';
 import { useLocation, useParams } from 'react-router-dom';
-import { routes } from '../../routes';
+import { routes } from 'routes';
+import styles from './PokemonList.module.scss';
 
-// const {  } = styles;
+const { list } = styles;
 const { type } = routes;
 const perPage = 12;
 
@@ -27,8 +27,9 @@ const PokemonList = () => {
   const isTypeRoute = `${type}/${name}` === pathname;
 
   useEffect(() => {
-    dispatch(pokemonOperations.fetchPokemonList({ startFrom, perPage }));
-  }, [dispatch, startFrom]);
+    !isTypeRoute &&
+      dispatch(pokemonOperations.fetchPokemonList({ startFrom, perPage }));
+  }, [dispatch, startFrom, isTypeRoute]);
 
   useEffect(() => {
     isTypeRoute && dispatch(pokemonOperations.fetchPokemonListByType(name));
@@ -51,7 +52,7 @@ const PokemonList = () => {
   return (
     <>
       {isTypeRoute ? (
-        <ul>
+        <ul className={list}>
           {pokemonList?.results?.length > 0 &&
             pokemonList?.results?.map(item => (
               <PokemonListItem
@@ -63,7 +64,7 @@ const PokemonList = () => {
         </ul>
       ) : (
         <>
-          <ul>
+          <ul className={list}>
             {pokemonList?.results?.length > 0 &&
               pokemonList?.results?.map(item => (
                 <PokemonListItem

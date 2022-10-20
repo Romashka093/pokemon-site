@@ -1,8 +1,29 @@
+@import '../../assets/styles/variables.scss';
 .header {
+  @include container_width;
 }
 
 .mainLayout {
+  @include container_width;
 }
 
 .footer {
+  @include container_width;
+}
+
+@media (min-width: 768px) {
+  .header {
+    &_heading {
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .mainLayout {
+  }
+
+  .footer {
+  }
 }

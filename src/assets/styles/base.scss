@@ -48,9 +48,14 @@ li {
 
 input {
   outline: none;
-  border: 1px solid black;
+  border: none;
 }
 
+input[type='search' i]:enabled:read-write:-webkit-any(:focus, :hover)::-webkit-search-cancel-button,
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  // TODO: have to add alternative icons
+}
 button,
 select,
 a {
