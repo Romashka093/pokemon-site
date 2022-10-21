@@ -11,7 +11,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import logger from 'redux-logger';
+// import logger from 'redux-logger';
 import pokemonReducer from './pokemon/pokemon-reducer';
 import typesReducer from './pokemon_types/pokemon_types_reducer';
 import namesReducer from './pokemon_names/pokemon_names_reducer';
@@ -28,7 +28,8 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(logger),
+    }),
+  // concat(logger)
   reducer: {
     pokemon: persistReducer(countPersistConfig, pokemonReducer),
     types: typesReducer,
