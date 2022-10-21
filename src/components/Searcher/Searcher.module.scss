@@ -1,37 +1,46 @@
+@import '../../assets/styles/variables.scss';
 .searcher {
-  margin: 0 0 16px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 12px;
-  border: 1px solid #d8d8d8;
+  border: 1px solid var(--gray);
   border-radius: 12px;
-  box-shadow: #d8d8d888 2px 8px 8px;
-
+  box-shadow: var(--shadow_gray) 8px 6px 16px;
   background-color: var(--white);
-  width: 340px;
+  @include container_width;
+  margin: 0 0 16px 0;
   &_label {
+    @include title_text;
   }
   &_input {
-    padding: 0 12px;
+    padding: 0 0 0 12px;
     &::placeholder {
-      color: #d8d8d8;
       padding: 0 0 0 2px;
+      @include title_text;
+      color: var(--gray);
     }
   }
   &_btn {
     height: 40px;
     width: 40px;
     border-radius: 12px;
-    background-color: #ff5350;
-    box-shadow: #ff535088 2px 8px 8px;
-    color: var(--white);
+    background-color: var(--red);
+    box-shadow: var(--shadow_red) 8px 6px 16px;
     font-size: 18px;
+    @include title_text;
+    color: var(--white);
     cursor: pointer;
+    transition: 223ms linear;
+    &:hover {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
   }
 }
 @media (min-width: 768px) {
   .searcher {
     margin: 0;
+    width: 340px;
   }
 }

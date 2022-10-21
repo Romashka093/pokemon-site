@@ -1,3 +1,4 @@
+import { Loader } from 'components/elements/Loader';
 import { Suspense, lazy } from 'react';
 
 const LazyPokemonListPage = lazy(() =>
@@ -8,7 +9,7 @@ const LazyPokemonListPage = lazy(() =>
 export const PokemonListPage = () => {
   return (
     <>
-      <Suspense fallback={<h2>Loading...</h2>}>
+      <Suspense fallback={<Loader />}>
         <LazyPokemonListPage />
       </Suspense>
     </>

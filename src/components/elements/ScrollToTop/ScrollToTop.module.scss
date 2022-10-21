@@ -1,0 +1,28 @@
+.progress {
+  background-color: var(--red);
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  height: 70px;
+  width: 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transition: 223ms linear;
+  box-shadow: var(--shadow_red) 8px 6px 16px;
+  z-index: 1;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: var(--shadow_red) 16px 12px 32px;
+  }
+  &_value {
+    display: block;
+    height: calc(100% - 15px);
+    width: calc(100% - 15px);
+    background-color: var(--white);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+}

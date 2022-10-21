@@ -20,7 +20,7 @@ const item = createReducer(null, {
 });
 
 const count = createReducer(null, {
-  [fetchPokemonList.fulfilled]: (_, { payload }) => payload.count,
+  [fetchPokemonList.fulfilled]: (_, { payload }) => payload?.count,
 });
 
 const loading = createReducer(false, {

@@ -33,4 +33,4 @@ your .env file
 
 ## 🔗 Demo
 
-> [![githubpage](https://img.shields.io/badge/github-page-000000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Romashka093/pokemon-site/)
+> [![githubpage](https://img.shields.io/badge/netlify-20C6B7?style=for-the-badge&logo=netlify&logoColor=white)](https://github.com/Romashka093/pokemon-site/)

@@ -35,7 +35,6 @@ export const fetchFoundPokemonList = createAsyncThunk(
   'pokemon/fetchFound',
   async (cred, api) => {
     const response = await axios.get(`/pokemon/${cred}`);
-    console.log('data: ', response.data);
     try {
       return api.fulfillWithValue(response.data);
     } catch (error) {

@@ -8,9 +8,11 @@ import { Pagination } from '../elements/Pagination';
 import { useLocation, useParams } from 'react-router-dom';
 import { routes } from 'routes';
 import styles from './PokemonList.module.scss';
+import { Loader } from 'components/elements/Loader';
 
 const { list } = styles;
 const { type } = routes;
+
 const perPage = 12;
 
 const PokemonList = () => {
@@ -19,7 +21,7 @@ const PokemonList = () => {
 
   const dispatch = useDispatch();
   const pokemonList = useSelector(pokemonSelector.getPokemonList);
-
+  const isLoadData = useSelector(pokemonSelector.getLoading);
   const [startFrom, setStartFrom] = useLocalStorage('startFrom', 0);
 
   const totalPages = Math.ceil(pokemonList?.count / perPage);
@@ -36,7 +38,8 @@ const PokemonList = () => {
   }, [dispatch, name, isTypeRoute]);
 
   const handlerPagination = evt => {
-    const { name } = evt.target;
+    const { id } = evt.target;
+
     if (pageIs === totalPages) {
       return;
     }
@@ -44,24 +47,15 @@ const PokemonList = () => {
       setStartFrom(0);
       return;
     } else
-      name === 'next'
+      id === 'next'
         ? setStartFrom(startFrom + perPage)
         : setStartFrom(startFrom - perPage);
   };
 
   return (
     <>
-      {isTypeRoute ? (
-        <ul className={list}>
-          {pokemonList?.results?.length > 0 &&
-            pokemonList?.results?.map(item => (
-              <PokemonListItem
-                key={getIdFromUrl(item.url)}
-                id={getIdFromUrl(item.url)}
-                item={item}
-              />
-            ))}
-        </ul>
+      {isLoadData ? (
+        <Loader />
       ) : (
         <>
           <ul className={list}>
@@ -74,11 +68,13 @@ const PokemonList = () => {
                 />
               ))}
           </ul>
-          <Pagination
-            handlerPagination={handlerPagination}
-            pageIs={pageIs}
-            totalPages={totalPages}
-          />
+          {!isTypeRoute && (
+            <Pagination
+              handlerPagination={handlerPagination}
+              pageIs={pageIs}
+              totalPages={totalPages}
+            />
+          )}
         </>
       )}
     </>

@@ -1,0 +1,92 @@
+@import '../../../assets/styles/variables.scss';
+
+.section {
+  position: relative;
+  margin: 0 0 16px 0;
+  padding: 16px;
+  border: 1px solid;
+  border-radius: 12px;
+  transition: 223ms linear;
+
+  &_heading {
+    @include title_text;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin: 128px 0 0 0;
+  }
+  &_picture {
+    position: absolute;
+    content: '';
+    top: -112px;
+    left: 16px;
+  }
+  &_types {
+    display: flex;
+    position: absolute;
+    content: '';
+    top: 80px;
+    right: 16px;
+  }
+  &_content {
+    &_list {
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 20vh;
+      border-radius: 12px;
+      &_heading {
+        @include title_text;
+        font-weight: 400;
+        margin: 0 0 24px 0;
+        padding: 24px 0 0 0;
+        font-size: 24px;
+        line-height: 120%;
+      }
+      &_item {
+        @include title_text;
+        padding: 6px 0;
+        transition: 223ms linear;
+        cursor: grab;
+        &:hover,
+        &:focus {
+          transform: scale(1.2);
+          font-weight: 400;
+        }
+        &__stats {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  &_btn {
+    padding: 12px;
+    @include title_text;
+    color: var(--white);
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 786px) {
+  .section {
+    &_heading {
+    }
+    &_picture {
+    }
+    &_types {
+    }
+    &_content {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      &_list {
+        max-height: 40vh;
+        width: 40vw;
+        &_heading {
+        }
+        &_item {
+        }
+      }
+    }
+  }
+}

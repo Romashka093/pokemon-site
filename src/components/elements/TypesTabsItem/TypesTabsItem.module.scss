@@ -1,10 +1,12 @@
+@import '../../../assets/styles/variables.scss';
 .tab {
   margin: 0 8px 12px 0;
   padding: 8px;
-  color: var(--white);
   border-radius: 12px;
   text-transform: capitalize;
   transition: 223ms linear;
+  @include title_text;
+  color: var(--white);
   cursor: pointer;
   &:hover,
   &:focus,

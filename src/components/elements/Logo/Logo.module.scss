@@ -4,4 +4,8 @@
   width: 120px;
   display: flex;
   align-items: center;
+  transition: 223ms linear;
+  &:hover {
+    transform: scale(1.1);
+  }
 }

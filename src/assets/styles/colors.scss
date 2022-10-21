@@ -1,7 +1,16 @@
 $white: #ffffff;
-$black: #000000;
-
+$black: #231f20;
+$shadow_black: #231f2088;
+$red: #ff5350;
+$shadow_red: #ff535088;
+$gray: #d8d8d8;
+$shadow_gray: #d8d8d888;
 :root {
   --white: #{$white};
   --black: #{$black};
+  --shadow_black: #{$shadow_black};
+  --red: #{$red};
+  --shadow_red: #{$shadow_red};
+  --gray: #{$gray};
+  --shadow_gray: #{$shadow_gray};
 }

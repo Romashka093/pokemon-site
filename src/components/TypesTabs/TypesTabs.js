@@ -9,13 +9,12 @@ const { tabs } = styles;
 
 const TypesTabs = () => {
   const dispatch = useDispatch();
-  const allTypes = useSelector(typesSelector.getTypes);
+  const types = useSelector(typesSelector.getTypes);
 
   useEffect(() => {
     dispatch(typesOperations.fetchPokemonTypes());
   }, [dispatch]);
 
-  const types = allTypes?.results;
   return (
     <ul className={tabs}>
       {types?.length > 0 &&

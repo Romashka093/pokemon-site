@@ -2,7 +2,8 @@ import { combineReducers, createReducer } from '@reduxjs/toolkit';
 import { fetchPokemonTypes } from './pokemon_types_operations';
 
 const data = createReducer(null, {
-  [fetchPokemonTypes.fulfilled]: (_, { payload }) => payload,
+  [fetchPokemonTypes.fulfilled]: (_, { payload }) =>
+    payload.results.slice(0, -2),
 });
 
 const loading = createReducer(false, {

@@ -1,13 +1,15 @@
+@import '../../../assets/styles/variables.scss';
 .pokemonItem {
   margin: 0 0 16px 0;
   padding: 16px;
-  border: 1px solid #d8d8d8;
+  border: 1px solid var(--gray);
   border-radius: 12px;
-  box-shadow: #d8d8d888 2px 8px 8px;
+  box-shadow: var(--shadow_gray) 8px 6px 16px;
   background-color: var(--white);
   transition: 223ms linear;
   &:hover {
     transform: scale(1.04);
+    box-shadow: var(--shadow_gray) 16px 12px 32px;
   }
   &_wrap {
     display: flex;
@@ -16,10 +18,8 @@
     align-items: center;
   }
   &_title {
+    @include title_text;
     text-transform: capitalize;
-  }
-  &_img {
-    // width: ;
   }
 }
 @media (min-width: 768px) {
@@ -33,6 +33,12 @@
 
 @media (min-width: 1440px) {
   .pokemonItem {
-    margin: 0 16px 16px;
+    margin: 0 34px 34px 0;
+  }
+}
+
+@media (min-width: 1920px) {
+  .pokemonItem {
+    margin: 0 70px 32px 0;
   }
 }

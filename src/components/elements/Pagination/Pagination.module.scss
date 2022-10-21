@@ -1,0 +1,26 @@
+@import '../../../assets/styles/variables.scss';
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 34px 0;
+  &_heading {
+    @include title_text;
+  }
+  &_item {
+    padding: 0 12px;
+    &_btn {
+      height: 32px;
+      box-shadow: var(--shadow_red) 8px 6px 16px;
+      border-radius: 50%;
+      &:hover {
+        transform: scale(1.04);
+        box-shadow: var(--shadow_red) 16px 12px 32px;
+      }
+
+      > svg {
+        fill: var(--red);
+      }
+    }
+  }
+}
