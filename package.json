@@ -17,7 +17,6 @@
     "react-responsive": "^9.0.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
-    "react-transition-group": "^4.4.5",
     "redux": "^4.2.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
@@ -28,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "netlify deploy -p"
   },
   "eslintConfig": {
     "extends": [
